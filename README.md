@@ -1,5 +1,6 @@
 # hobbycoWebScraping
-Web scraping for https://www.hobbyco.com.au/
+Web scraping data for https://www.hobbyco.com.au/ using Selenium WebDriver 3.141
+hobbyco.py is the final code for web scraping.
 
 Extract:
 1. Product name
