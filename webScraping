@@ -3,6 +3,7 @@ Created on February 13, 2023
 
 @Title: Web Scraping for Hobbyco
 @author: Kelvin Hapa
+@email: hapakjm@gmail.coml
 
 
 Requirements:
@@ -174,7 +175,10 @@ data = {
     'Brand': [],
     'Type': [],
     'Company': [],
-    'URL': []
+    'URL': [],
+    'SKU': [],
+    'Rating': [],
+    'InStock': []
 }
 
 date = datetime.today()
@@ -207,7 +211,7 @@ tamiyaModelKits = [
     ('//*[@id="SiteHeader"]/div[1]/div/div[2]/ul/li[6]/a', 5),
     ('//*[@id="CollectionAjaxContent"]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/button', 1),
     ('//*[@id="FilterDrawer"]/div/div[2]/form/div[1]/div/button', 1),
-    ('//*[@id="SidebarDrawer-1-filter-brand"]/div/ul/li[38]/label/span[2]', 5),
+    ('//*[@id="SidebarDrawer-1-filter-brand"]/div/ul/li[43]/label/span[2]/span', 5),
     ('//*[@id="CollectionAjaxContent"]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/button', 1),
     ('//*[@id="FilterDrawer"]/div/div[2]/form/div[2]/div/button', 1),
     ('//*[@id="SidebarDrawer-2-filter-product-type"]/div/ul/li[2]/label/span[2]/span', 5)
@@ -240,7 +244,6 @@ extractData(date, company, category, brand, type)
 
 #-------------------------------------------------------------------------------------#
 
-
 ## quit browser
 
 driver.quit()
@@ -250,9 +253,9 @@ driver.quit()
 
 
 ## save data into a dataframe
-df_hobbyco = pd.DataFrame(data)
-print(df_hobbyco)
-print(df_hobbyco.shape)
+# df_hobbyco = pd.DataFrame(data)
+# print(df_hobbyco)
+# print(df_hobbyco.shape)
 
 
 #-------------------------------------------------------------------------------------#
@@ -260,4 +263,4 @@ print(df_hobbyco.shape)
 
 ## save dataframe into a csv file
 
-df_hobbyco.to_csv('Hobbyco_Products_'+str(date)[0:10]+'.csv', index=False, encoding='utf-8')
+# df_hobbyco.to_csv('Hobbyco_Products_'+str(date)[0:10]+'.csv', index=False, encoding='utf-8')
