@@ -152,7 +152,7 @@ def selectFilter(collection_link, brand_xpath, prod_type_btn):
 
 
 def extractData(date, company, category, brand, type):
-    print(f'Page {page[0]}')
+    # print(f'Page {page[0]}')
     products_box = driver.find_elements_by_xpath('//*[@id="CollectionAjaxContent"]/div/div/div[2]/div[2]/div/div[1]/div[2]/div')
 
     for div in products_box:
@@ -183,7 +183,7 @@ def extractData(date, company, category, brand, type):
         data['URL'].append(url)
 
         data_count[0] += 1
-        print('Data: ', data_count[0])
+        # print('Data: ', data_count[0])
 
     changePage(date, company, category, brand, type)
 
@@ -340,8 +340,6 @@ for ind, url in enumerate(data['URL']):
     data['Reviews'].append('No reviews')
     print(sku, sku_temp, rating, in_stock)
 
-    break
-
 
 #-------------------------------------------------------------------------------------#
 
@@ -359,7 +357,6 @@ driver.quit()
 
 print('Saving data to a dataframe.')
 df = pd.DataFrame(data)
-print(df)
 
 
 #-------------------------------------------------------------------------------------#
@@ -388,4 +385,4 @@ df_hobbyco.drop_duplicates()
 ## save dataframe into a csv file the final data
 
 print('Saving final data to a CSV file.')
-df.to_csv('Hobbyco_'+str(date)[0:10]+'.csv', index=False, encoding='utf-8')
+df_hobbyco.to_csv('Hobbyco_'+str(date)[0:10]+'.csv', index=False, encoding='utf-8')
